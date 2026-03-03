@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ML Dashboard | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  min-height:100vh;background:#0a0a0f;color:#e2e8f0;
+  font-family:'Inter',sans-serif;
+  background-image:
+    radial-gradient(ellipse at 15% 25%,rgba(124,58,237,0.12) 0%,transparent 50%),
+    radial-gradient(ellipse at 85% 75%,rgba(0,212,255,0.10) 0%,transparent 50%);
+}
+nav{background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.07);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px;}
+.back{color:#475569;font-size:0.82rem;text-decoration:none;padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.07);transition:all 0.2s;}
+.back:hover{color:#7c3aed;border-color:rgba(124,58,237,0.3);}
+.container{max-width:1000px;margin:0 auto;padding:40px 24px;}
+.header{text-align:center;margin-bottom:48px;}
+.header h1{font-family:'Syne',sans-serif;font-size:2rem;margin-bottom:10px;}
+.header h1 span{background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.header p{color:#475569;font-size:0.9rem;}
+.ai-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:20px;font-size:0.75rem;font-weight:700;background:linear-gradient(135deg,rgba(0,212,255,0.12),rgba(124,58,237,0.12));border:1px solid rgba(124,58,237,0.25);color:#a78bfa;margin-bottom:16px;letter-spacing:0.5px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:30px;text-decoration:none;color:inherit;transition:all 0.25s;position:relative;overflow:hidden;display:block;}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.4);}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.3s;}
+.card:hover::before{opacity:1;}
+.c1::before{background:linear-gradient(90deg,#10b981,#34d399);}
+.c2::before{background:linear-gradient(90deg,#00d4ff,#0ea5e9);}
+.c3::before{background:linear-gradient(90deg,#f59e0b,#fbbf24);}
+.c4::before{background:linear-gradient(90deg,#ef4444,#f97316);}
+.card-icon{font-size:2.5rem;margin-bottom:18px;display:block;}
+.card h3{font-family:'Syne',sans-serif;font-size:1.15rem;margin-bottom:10px;}
+.card p{color:#475569;font-size:0.83rem;line-height:1.6;margin-bottom:14px;}
+.tech-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.68rem;font-weight:700;letter-spacing:0.5px;}
+.t-green{background:rgba(16,185,129,0.12);color:#34d399;border:1px solid rgba(16,185,129,0.25);}
+.t-cyan{background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.2);}
+.t-gold{background:rgba(245,158,11,0.12);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);}
+.retrain-card{background:rgba(18,18,30,0.9);border:1px solid rgba(239,68,68,0.12);border-radius:20px;padding:30px;}
+.retrain-card h3{font-family:'Syne',sans-serif;font-size:1.15rem;margin-bottom:10px;}
+.retrain-card p{color:#475569;font-size:0.83rem;line-height:1.6;margin-bottom:18px;}
+.btn-retrain{padding:11px 24px;border-radius:10px;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;font-size:0.88rem;background:linear-gradient(135deg,#dc2626,#ef4444);color:#fff;box-shadow:0 0 20px rgba(239,68,68,0.2);transition:all 0.2s;}
+.btn-retrain:hover{box-shadow:0 0 35px rgba(239,68,68,0.4);transform:translateY(-1px);}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <a href="/shopkeeper_home" class="back">← Panel</a>
+</nav>
+<div class="container">
+  <div class="header">
+    <div class="ai-badge">🤖 AI Powered</div>
+    <h1>ML <span>Analytics</span> Dashboard</h1>
+    <p>Machine Learning powered insights for smarter canteen management</p>
+  </div>
+  <div class="grid">
+    <a href="/ml/stock_prediction" class="card c1">
+      <span class="card-icon">📦</span>
+      <h3>Stock Prediction</h3>
+      <p>Predict tomorrow's inventory needs based on historical order patterns.</p>
+      <span class="tech-badge t-green">Random Forest Regressor</span>
+    </a>
+    <a href="/ml/sentiment_analysis" class="card c2">
+      <span class="card-icon">💬</span>
+      <h3>Review Sentiment</h3>
+      <p>Analyse customer reviews and predict star ratings using NLP.</p>
+      <span class="tech-badge t-cyan">TF-IDF + RF Classifier</span>
+    </a>
+    <a href="/ml/predict_rating" class="card c3">
+      <span class="card-icon">🔮</span>
+      <h3>Live Rating Predictor</h3>
+      <p>Type any review and get an instant AI-predicted star rating.</p>
+      <span class="tech-badge t-gold">Live Prediction</span>
+    </a>
+    <div class="retrain-card">
+      <span style="font-size:2.5rem;display:block;margin-bottom:18px;">🔁</span>
+      <h3>Retrain Models</h3>
+      <p>Retrain both ML models with the latest orders and feedback data for improved accuracy.</p>
+      <form action="/ml/retrain" method="POST">
+        <button type="submit" class="btn-retrain">Retrain Now</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

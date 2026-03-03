@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Orders | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0a0f;color:#e2e8f0;font-family:'Inter',sans-serif;background-image:radial-gradient(ellipse at 20% 20%,rgba(0,212,255,0.06) 0%,transparent 50%);}
+nav{background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.07);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px;}
+.back{color:#475569;font-size:0.82rem;text-decoration:none;padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.07);transition:all 0.2s;}
+.back:hover{color:#00d4ff;border-color:rgba(0,212,255,0.3);}
+.container{max-width:1100px;margin:0 auto;padding:40px 24px;}
+h1{font-family:'Syne',sans-serif;font-size:1.8rem;margin-bottom:8px;}
+h1 span{background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:#475569;font-size:0.85rem;margin-bottom:32px;}
+.table-wrap{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;}
+table{width:100%;border-collapse:collapse;}
+th{background:rgba(255,255,255,0.04);color:#475569;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;padding:14px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.07);}
+td{padding:16px 18px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.88rem;vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,0.02);}
+.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;}
+.b-pending{background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3);}
+.b-preparing{background:rgba(0,212,255,0.12);color:#00d4ff;border:1px solid rgba(0,212,255,0.25);}
+.b-completed{background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3);}
+.b-other{background:rgba(100,116,139,0.15);color:#94a3b8;border:1px solid rgba(100,116,139,0.25);}
+.update-form{display:flex;gap:8px;align-items:center;}
+select{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e2e8f0;padding:7px 10px;font-family:'Inter',sans-serif;font-size:0.8rem;outline:none;cursor:pointer;}
+select:focus{border-color:#7c3aed;}
+.btn-update{padding:7px 16px;border-radius:8px;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:0.8rem;background:linear-gradient(135deg,#6d28d9,#7c3aed);color:#fff;transition:all 0.2s;}
+.btn-update:hover{box-shadow:0 0 15px rgba(124,58,237,0.4);}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <a href="/shopkeeper_home" class="back">← Panel</a>
+</nav>
+<div class="container">
+  <h1>All <span>Orders</span></h1>
+  <p class="sub">View and update the status of every order</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th><th>Customer</th><th>Item</th><th>Qty</th><th>Status</th><th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td><strong>#{{ order.order_id }}</strong></td>
+          <td>{{ order.customer_name }}</td>
+          <td>{{ order.item_name }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>
+            {% if order.status == 'Pending' %}<span class="badge b-pending">Pending</span>
+            {% elif order.status == 'Preparing' %}<span class="badge b-preparing">Preparing</span>
+            {% elif order.status == 'Completed' %}<span class="badge b-completed">Completed</span>
+            {% else %}<span class="badge b-other">{{ order.status }}</span>{% endif %}
+          </td>
+          <td>
+            <form action="/update_order_status/{{ order.order_id }}" method="POST" class="update-form">
+              <select name="status">
+                <option value="Pending">Pending</option>
+                <option value="Preparing">Preparing</option>
+                <option value="Completed">Completed</option>
+              </select>
+              <button type="submit" class="btn-update">Update</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

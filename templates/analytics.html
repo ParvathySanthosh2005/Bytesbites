@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Analytics | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0a0f;color:#e2e8f0;font-family:'Inter',sans-serif;background-image:radial-gradient(ellipse at 20% 20%,rgba(236,72,153,0.07) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(0,212,255,0.05) 0%,transparent 50%);}
+nav{background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.07);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px;}
+.back{color:#475569;font-size:0.82rem;text-decoration:none;padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.07);transition:all 0.2s;}
+.back:hover{color:#00d4ff;border-color:rgba(0,212,255,0.3);}
+.container{max-width:1000px;margin:0 auto;padding:40px 24px;}
+h1{font-family:'Syne',sans-serif;font-size:1.8rem;margin-bottom:8px;}
+h1 span{background:linear-gradient(135deg,#ec4899,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:#475569;font-size:0.85rem;margin-bottom:36px;}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-bottom:32px;}
+.stat-card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;text-align:center;transition:all 0.25s;}
+.stat-card:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,0.3);}
+.stat-icon{font-size:2rem;margin-bottom:12px;}
+.stat-label{color:#475569;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;}
+.stat-value{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:700;}
+.v-cyan{background:linear-gradient(135deg,#00d4ff,#00b4d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.v-gold{background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.table-card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;}
+.table-header{padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:10px;}
+.table-header h3{font-family:'Syne',sans-serif;font-size:1.1rem;}
+table{width:100%;border-collapse:collapse;}
+th{background:rgba(255,255,255,0.03);color:#475569;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;padding:12px 20px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);}
+td{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.88rem;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,0.02);}
+.rank{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:8px;font-size:0.75rem;font-weight:700;background:rgba(124,58,237,0.15);color:#a78bfa;border:1px solid rgba(124,58,237,0.2);}
+.count{color:#00d4ff;font-weight:700;}
+.empty-msg{padding:32px;text-align:center;color:#475569;}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <a href="/shopkeeper_home" class="back">← Panel</a>
+</nav>
+<div class="container">
+  <h1>📊 <span>Analytics</span></h1>
+  <p class="sub">Sales insights and performance metrics</p>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-icon">🛒</div>
+      <div class="stat-label">Total Orders</div>
+      <div class="stat-value v-cyan">{{ total_orders['cnt'] }}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⭐</div>
+      <div class="stat-label">Average Rating</div>
+      <div class="stat-value v-gold">{{ avg_rating['avg'] or 'N/A' }}</div>
+    </div>
+  </div>
+  <div class="table-card">
+    <div class="table-header">
+      <span style="font-size:1.2rem;">🔥</span>
+      <h3>Top 5 Ordered Items</h3>
+    </div>
+    {% if top_items %}
+    <table>
+      <thead><tr><th>#</th><th>Item Name</th><th>Total Ordered</th></tr></thead>
+      <tbody>
+        {% for item in top_items %}
+        <tr>
+          <td><span class="rank">{{ loop.index }}</span></td>
+          <td><strong>{{ item['name'] }}</strong></td>
+          <td><span class="count">{{ item['total_ordered'] }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="empty-msg">No order data yet.</div>
+    {% endif %}
+  </div>
+</div>
+</body>
+</html>

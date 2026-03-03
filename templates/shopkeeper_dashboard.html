@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Manage Menu | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0a0f;color:#e2e8f0;font-family:'Inter',sans-serif;background-image:radial-gradient(ellipse at 20% 20%,rgba(124,58,237,0.08) 0%,transparent 50%);}
+nav{background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.07);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px;}
+.nav-right{display:flex;gap:10px;}
+.btn-nav{padding:8px 18px;border-radius:10px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.82rem;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;}
+.btn-add{background:linear-gradient(135deg,#10b981,#34d399);color:#000;box-shadow:0 0 15px rgba(16,185,129,0.25);}
+.btn-add:hover{box-shadow:0 0 25px rgba(16,185,129,0.45);transform:translateY(-1px);color:#000;}
+.btn-back{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#94a3b8;}
+.btn-back:hover{color:#00d4ff;border-color:rgba(0,212,255,0.3);}
+.container{max-width:900px;margin:0 auto;padding:40px 24px;}
+h1{font-family:'Syne',sans-serif;font-size:1.8rem;margin-bottom:8px;}
+h1 span{background:linear-gradient(135deg,#7c3aed,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:#475569;font-size:0.85rem;margin-bottom:32px;}
+.item-card{
+  background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);
+  border-radius:16px;padding:22px 24px;margin-bottom:14px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  transition:all 0.25s;
+}
+.item-card:hover{border-color:rgba(124,58,237,0.2);box-shadow:0 8px 30px rgba(0,0,0,0.3);}
+.item-info h4{font-family:'Syne',sans-serif;font-size:1.05rem;margin-bottom:6px;}
+.item-price{color:#00d4ff;font-weight:700;font-size:1rem;margin-bottom:4px;}
+.item-stock{color:#475569;font-size:0.78rem;}
+.item-stock strong{color:#e2e8f0;}
+.badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:0.72rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+.badge-avail{background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3);}
+.badge-out{background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn-action{
+  padding:8px 16px;border-radius:9px;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:0.8rem;
+  text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;
+}
+.btn-warn{background:rgba(245,158,11,0.12);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);}
+.btn-warn:hover{background:rgba(245,158,11,0.22);color:#fbbf24;}
+.btn-success{background:rgba(16,185,129,0.12);color:#34d399;border:1px solid rgba(16,185,129,0.25);}
+.btn-success:hover{background:rgba(16,185,129,0.22);color:#34d399;}
+.btn-info{background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.25);}
+.btn-info:hover{background:rgba(0,212,255,0.18);color:#00d4ff;}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <div class="nav-right">
+    <a href="/add_item" class="btn-nav btn-add">+ Add Item</a>
+    <a href="/shopkeeper_home" class="btn-nav btn-back">← Panel</a>
+  </div>
+</nav>
+<div class="container">
+  <h1>Manage <span>Menu Items</span></h1>
+  <p class="sub">Update stock, prices, and availability</p>
+  {% for item in items %}
+  <div class="item-card">
+    <div class="item-info">
+      <h4>{{ item['name'] }}</h4>
+      <div class="item-price">₹{{ item['price'] }}</div>
+      <div class="item-stock">Stock: <strong>{{ item['quantity'] }} units</strong></div>
+    </div>
+    <div class="actions">
+      {% if item['available'] == 1 %}
+        <span class="badge badge-avail">● Available</span>
+        <a href="/update_availability/{{ item['id'] }}/0" class="btn-action btn-warn">Mark Out of Stock</a>
+      {% else %}
+        <span class="badge badge-out">● Out of Stock</span>
+        <a href="/update_availability/{{ item['id'] }}/1" class="btn-action btn-success">Mark Available</a>
+      {% endif %}
+      <a href="/edit_item/{{ item['id'] }}" class="btn-action btn-info">Edit</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  min-height:100vh;background:#0a0a0f;color:#e2e8f0;
+  font-family:'Inter',sans-serif;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background-image:
+    radial-gradient(ellipse at 20% 30%,rgba(124,58,237,0.15) 0%,transparent 55%),
+    radial-gradient(ellipse at 80% 70%,rgba(0,212,255,0.10) 0%,transparent 55%);
+}
+.card{
+  background:rgba(18,18,30,0.9);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:24px;
+  padding:48px 40px 40px;
+  width:380px;
+  text-align:center;
+  backdrop-filter:blur(20px);
+  box-shadow:0 0 60px rgba(124,58,237,0.15),0 30px 60px rgba(0,0,0,0.5);
+  animation:fadeUp 0.7s ease;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.logo-ring{
+  width:90px;height:90px;border-radius:50%;margin:0 auto 20px;
+  background:linear-gradient(135deg,#7c3aed,#00d4ff);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.4rem;
+  box-shadow:0 0 30px rgba(0,212,255,0.4);
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 30px rgba(0,212,255,0.4)}50%{box-shadow:0 0 50px rgba(0,212,255,0.7)}}
+h1{
+  font-family:'Orbitron',sans-serif;font-size:1.9rem;font-weight:900;
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:6px;letter-spacing:2px;
+}
+.tagline{color:#64748b;font-size:0.82rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:36px;}
+.btn{
+  display:block;width:100%;padding:13px;border-radius:12px;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:0.9rem;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all 0.25s;margin-bottom:12px;letter-spacing:0.5px;
+}
+.btn-cyan{
+  background:linear-gradient(135deg,#00b4d8,#00d4ff);color:#000;
+  box-shadow:0 0 20px rgba(0,212,255,0.3);
+}
+.btn-cyan:hover{transform:translateY(-2px);box-shadow:0 0 35px rgba(0,212,255,0.6);color:#000;}
+.btn-purple{
+  background:linear-gradient(135deg,#6d28d9,#7c3aed);color:#fff;
+  box-shadow:0 0 20px rgba(124,58,237,0.3);
+}
+.btn-purple:hover{transform:translateY(-2px);box-shadow:0 0 35px rgba(124,58,237,0.6);color:#fff;}
+.btn-ghost{
+  background:rgba(255,255,255,0.04);color:#64748b;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.btn-ghost:hover{border-color:#00d4ff;color:#032127;}
+.divider{height:1px;background:rgba(255,255,255,0.07);margin:20px 0;}
+.team{font-size:0.75rem;color:#475569;line-height:1.8;}
+.team strong{color:#7c3aed;}
+footer{margin-top:30px;font-size:0.72rem;color:#334155;letter-spacing:1px;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo-ring">☕</div>
+  <h1>BYTEBITES</h1>
+  <p class="tagline">Eat · Enjoy · Rate</p>
+  <a href="/custlogin" class="btn btn-cyan">Customer Login</a>
+  <a href="/shopkeeper_login" class="btn btn-purple">Shopkeeper Login</a>
+  <a href="/admin_help" class="btn btn-ghost">Admin Help</a>
+  <div class="divider"></div>
+  <div class="team">
+    <strong>Team ByteBites</strong><br>
+    Parvathy Santhosh · R Sreepriya · Nihadh · Sreedev<br>
+    Dept. of Computer Science & Engineering<br>
+    College of Engineering, Adoor
+  </div>
+</div>
+<footer>© 2026 ByteBites Canteen System</footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Give Feedback | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0a0f;color:#e2e8f0;font-family:'Inter',sans-serif;padding:40px 24px;background-image:radial-gradient(ellipse at 30% 40%,rgba(245,158,11,0.07) 0%,transparent 55%);}
+.container{max-width:600px;margin:0 auto;}
+.back{display:inline-flex;align-items:center;gap:6px;color:#475569;font-size:0.8rem;text-decoration:none;margin-bottom:28px;transition:color 0.2s;}
+.back:hover{color:#f59e0b;}
+.card{background:rgba(18,18,30,0.95);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px;}
+.icon{width:60px;height:60px;border-radius:14px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.2);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:20px;}
+h2{font-family:'Syne',sans-serif;font-size:1.7rem;margin-bottom:6px;}
+.sub{color:#475569;font-size:0.85rem;margin-bottom:32px;}
+.field{margin-bottom:22px;}
+label{display:block;font-size:0.75rem;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;}
+select,textarea,input[type=file]{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:#e2e8f0;padding:13px 16px;font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+select:focus,textarea:focus{border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,0.1);}
+select option{background:#12121e;}
+textarea{resize:vertical;min-height:100px;}
+.emoji-group{display:flex;gap:16px;flex-wrap:wrap;}
+.emoji-label{display:flex;align-items:center;gap:8px;cursor:pointer;padding:8px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);transition:all 0.2s;font-size:0.88rem;}
+.emoji-label:hover{border-color:rgba(245,158,11,0.3);color:#fbbf24;}
+.emoji-label input{display:none;}
+.emoji-label input:checked + span{color:#fbbf24;}
+.btn{width:100%;padding:14px;border-radius:12px;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;font-size:0.95rem;background:linear-gradient(135deg,#d97706,#f59e0b);color:#000;box-shadow:0 0 24px rgba(245,158,11,0.25);transition:all 0.25s;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(245,158,11,0.45);}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="/customer_dashboard" class="back">← Dashboard</a>
+  <div class="card">
+    <div class="icon">⭐</div>
+    <h2>Submit Feedback</h2>
+    <p class="sub">Your honest review helps us improve every day.</p>
+    <form action="/submit_feedback" method="POST" enctype="multipart/form-data">
+      <div class="field">
+        <label>Rating</label>
+        <select name="rating">
+          <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+          <option value="4">⭐⭐⭐⭐ Good</option>
+          <option value="3">⭐⭐⭐ Average</option>
+          <option value="2">⭐⭐ Poor</option>
+          <option value="1">⭐ Very Poor</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Emoji Reaction</label>
+        <div class="emoji-group">
+          <label class="emoji-label"><input type="radio" name="emoji" value="😀"><span>😀 Happy</span></label>
+          <label class="emoji-label"><input type="radio" name="emoji" value="🙂"><span>🙂 Okay</span></label>
+          <label class="emoji-label"><input type="radio" name="emoji" value="😐"><span>😐 Neutral</span></label>
+          <label class="emoji-label"><input type="radio" name="emoji" value="☹️"><span>☹️ Sad</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Category</label>
+        <select name="category">
+          <option value="Service">Service</option>
+          <option value="Quality">Quality</option>
+          <option value="Delivery">Delivery</option>
+          <option value="Pricing">Pricing</option>
+          <option value="Overall Experience">Overall Experience</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Comments</label>
+        <textarea name="comment" placeholder="Share your experience..."></textarea>
+      </div>
+      <div class="field">
+        <label>Upload Image (optional)</label>
+        <input type="file" name="image" accept="image/*">
+      </div>
+      <button type="submit" class="btn">Submit Feedback →</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

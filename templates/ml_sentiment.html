@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sentiment Analysis | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0a0f;color:#e2e8f0;font-family:'Inter',sans-serif;background-image:radial-gradient(ellipse at 20% 20%,rgba(0,212,255,0.08) 0%,transparent 50%);}
+nav{background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.07);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px;}
+.back{color:#475569;font-size:0.82rem;text-decoration:none;padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.07);transition:all 0.2s;}
+.back:hover{color:#00d4ff;border-color:rgba(0,212,255,0.3);}
+.container{max-width:1100px;margin:0 auto;padding:40px 24px;}
+h1{font-family:'Syne',sans-serif;font-size:1.8rem;margin-bottom:8px;}
+h1 span{background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:#475569;font-size:0.85rem;margin-bottom:32px;}
+.alert{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);color:#fbbf24;border-radius:10px;padding:12px 16px;font-size:0.85rem;margin-bottom:20px;}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
+.stat-card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:20px;text-align:center;}
+.stat-label{color:#475569;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;}
+.stat-value{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:700;}
+.v-white{color:#e2e8f0;} .v-green{color:#10b981;} .v-gold{color:#f59e0b;} .v-cyan{color:#00d4ff;}
+.chart-card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;margin-bottom:24px;}
+.chart-card h3{font-family:'Syne',sans-serif;font-size:1.05rem;margin-bottom:20px;}
+.rating-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.star-label{width:72px;color:#f59e0b;font-size:0.85rem;}
+.bar-track{flex:1;background:rgba(255,255,255,0.05);border-radius:20px;height:16px;overflow:hidden;}
+.bar-fill{background:linear-gradient(90deg,#f59e0b,#fbbf24);height:100%;border-radius:20px;transition:width 0.8s ease;}
+.count-label{width:70px;font-size:0.75rem;color:#94a3b8;text-align:right;}
+.table-card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;margin-bottom:24px;}
+.table-header{padding:18px 22px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.table-header h3{font-family:'Syne',sans-serif;font-size:1.05rem;}
+table{width:100%;border-collapse:collapse;}
+th{background:rgba(255,255,255,0.03);color:#475569;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);}
+td{padding:13px 16px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.83rem;vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,0.02);}
+.conf-track{background:rgba(255,255,255,0.05);border-radius:20px;height:10px;width:80px;overflow:hidden;display:inline-block;}
+.conf-fill{background:linear-gradient(90deg,#f59e0b,#fbbf24);height:100%;}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;}
+.b-match{background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3);}
+.b-no{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25);}
+.bottom-btns{display:flex;gap:12px;margin-top:8px;}
+.btn{padding:10px 22px;border-radius:10px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.85rem;text-decoration:none;border:1px solid rgba(255,255,255,0.1);color:#94a3b8;transition:all 0.2s;}
+.btn:hover{border-color:rgba(0,212,255,0.3);color:#00d4ff;}
+.btn-gold{background:linear-gradient(135deg,#d97706,#f59e0b);color:#000;border:none;box-shadow:0 0 18px rgba(245,158,11,0.2);}
+.btn-gold:hover{box-shadow:0 0 30px rgba(245,158,11,0.4);color:#000;}
+.empty-card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:48px;text-align:center;}
+.empty-card p{color:#475569;margin-bottom:16px;}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <a href="/ml_dashboard" class="back">← ML Dashboard</a>
+</nav>
+<div class="container">
+  <h1>💬 Review <span>Sentiment Analysis</span></h1>
+  <p class="sub">ML model predicts star ratings from customer review text</p>
+  {% if error %}<div class="alert">⚠ {{ error }}</div>{% endif %}
+  {% if stats.get('total', 0) > 0 %}
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Total Reviews</div><div class="stat-value v-white">{{ stats.total }}</div></div>
+    <div class="stat-card"><div class="stat-label">Correct Predictions</div><div class="stat-value v-green">{{ stats.correct }}</div></div>
+    <div class="stat-card"><div class="stat-label">Model Accuracy</div><div class="stat-value v-gold">{{ stats.accuracy }}%</div></div>
+    <div class="stat-card"><div class="stat-label">Avg Actual Rating</div><div class="stat-value v-cyan">{{ stats.avg_actual }}⭐</div></div>
+  </div>
+  <div class="chart-card">
+    <h3>📊 Rating Distribution</h3>
+    {% for star in [5, 4, 3, 2, 1] %}
+      {% set count = results | selectattr('actual_rating','equalto',star) | list | length %}
+      {% set pct = (count / stats.total * 100) | int if stats.total > 0 else 0 %}
+      <div class="rating-row">
+        <div class="star-label">{% for i in range(star) %}⭐{% endfor %}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:{{ pct }}%;"></div></div>
+        <div class="count-label">{{ count }} ({{ pct }}%)</div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="table-card">
+    <div class="table-header"><h3>Review-by-Review Results</h3></div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead><tr><th>Customer</th><th>Review</th><th>Category</th><th>Actual</th><th>Predicted</th><th>Confidence</th><th>Match</th></tr></thead>
+        <tbody>
+          {% for r in results %}
+          <tr>
+            <td>{{ r.customer }}</td>
+            <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ r.comment }}</td>
+            <td>{{ r.category }}</td>
+            <td>{{ r.actual_rating }}⭐</td>
+            <td>{{ r.predicted_rating }}⭐</td>
+            <td><div class="conf-track"><div class="conf-fill" style="width:{{ r.confidence }}%;"></div></div><br><small style="color:#475569;">{{ r.confidence }}%</small></td>
+            <td>{% if r.match == '✅' %}<span class="badge b-match">Match</span>{% else %}<span class="badge b-no">Miss</span>{% endif %}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% else %}
+  <div class="empty-card">
+    <p>No feedback with comments found yet. Ask customers to leave reviews!</p>
+    <a href="/ml/predict_rating" class="btn btn-gold">Try Live Prediction →</a>
+  </div>
+  {% endif %}
+  <div class="bottom-btns">
+    <a href="/ml/predict_rating" class="btn btn-gold">🔮 Live Prediction</a>
+    <a href="/ml_dashboard" class="btn">← ML Dashboard</a>
+  </div>
+</div>
+</body>
+</html>

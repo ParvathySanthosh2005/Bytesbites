@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  min-height:100vh;background:#0a0a0f;color:#e2e8f0;
+  font-family:'Inter',sans-serif;
+  background-image:
+    radial-gradient(ellipse at 15% 20%,rgba(0,212,255,0.07) 0%,transparent 50%),
+    radial-gradient(ellipse at 85% 80%,rgba(124,58,237,0.07) 0%,transparent 50%);
+}
+nav{
+  background:rgba(10,10,15,0.95);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  padding:16px 32px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);
+}
+.logo{
+  font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:2px;
+}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.nav-right a{
+  color:#475569;font-size:0.82rem;text-decoration:none;
+  padding:6px 14px;border-radius:8px;transition:all 0.2s;
+}
+.nav-right a:hover{color:#00d4ff;background:rgba(0,212,255,0.08);}
+.logout{
+  background:rgba(239,68,68,0.1)!important;
+  border:1px solid rgba(239,68,68,0.2)!important;
+  color:#f87171!important;border-radius:8px;
+}
+.logout:hover{background:rgba(239,68,68,0.2)!important;color:#fca5a5!important;}
+.container{max-width:1100px;margin:0 auto;padding:48px 24px;}
+.greeting{margin-bottom:48px;}
+.greeting h1{
+  font-family:'Syne',sans-serif;font-size:2rem;font-weight:700;
+  margin-bottom:8px;
+}
+.greeting h1 span{
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.greeting p{color:#475569;font-size:0.9rem;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.card{
+  background:rgba(18,18,30,0.9);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:20px;padding:28px;
+  text-decoration:none;color:inherit;
+  transition:all 0.25s;position:relative;overflow:hidden;
+  display:block;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  opacity:0;transition:opacity 0.3s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.4);border-color:rgba(255,255,255,0.12);}
+.card:hover::before{opacity:1;}
+.c1::before{background:linear-gradient(90deg,#00d4ff,#00b4d8);}
+.c2::before{background:linear-gradient(90deg,#7c3aed,#a78bfa);}
+.c3::before{background:linear-gradient(90deg,#10b981,#34d399);}
+.c4::before{background:linear-gradient(90deg,#f59e0b,#fbbf24);}
+.c5::before{background:linear-gradient(90deg,#ec4899,#f472b6);}
+.card-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;margin-bottom:18px;
+}
+.ic1{background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.2);}
+.ic2{background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);}
+.ic3{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.2);}
+.ic4{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.2);}
+.ic5{background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.2);}
+.card h3{font-family:'Syne',sans-serif;font-size:1.15rem;margin-bottom:8px;}
+.card p{color:#475569;font-size:0.83rem;line-height:1.5;}
+.arrow{
+  position:absolute;right:24px;bottom:24px;
+  color:#334155;font-size:1.1rem;transition:all 0.2s;
+}
+.card:hover .arrow{color:#00d4ff;transform:translateX(4px);}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <div class="nav-right">
+    <a href="/my_orders">My Orders</a>
+    <a href="/give_feedback">Feedback</a>
+    <a href="/customer_logout" class="logout">Logout</a>
+  </div>
+</nav>
+<div class="container">
+  <div class="greeting">
+    <h1>Welcome back, <span>Foodie!</span> 👋</h1>
+    <p>What would you like to do today?</p>
+  </div>
+  <div class="grid">
+    <a href="/menu" class="card c1">
+      <div class="card-icon ic1">🍽️</div>
+      <h3>Browse Menu</h3>
+      <p>Explore today's available dishes and place your order.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/my_orders" class="card c2">
+      <div class="card-icon ic2">📦</div>
+      <h3>My Orders</h3>
+      <p>Track the status of your current and past orders.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/wishlist" class="card c3">
+      <div class="card-icon ic3">💖</div>
+      <h3>Wishlist</h3>
+      <p>Your saved favourite items for quick ordering.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/give_feedback" class="card c4">
+      <div class="card-icon ic4">⭐</div>
+      <h3>Give Feedback</h3>
+      <p>Rate your experience and help us improve.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/trending" class="card c5">
+      <div class="card-icon ic5">🔥</div>
+      <h3>Trending Now</h3>
+      <p>See what's most popular among students today.</p>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>

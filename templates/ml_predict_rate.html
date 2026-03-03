@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Predict Rating | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0a0f;color:#e2e8f0;font-family:'Inter',sans-serif;padding:40px 24px;background-image:radial-gradient(ellipse at 30% 30%,rgba(245,158,11,0.1) 0%,transparent 50%),radial-gradient(ellipse at 70% 70%,rgba(124,58,237,0.08) 0%,transparent 50%);}
+.container{max-width:700px;margin:0 auto;}
+.back{display:inline-flex;align-items:center;gap:6px;color:#475569;font-size:0.8rem;text-decoration:none;margin-bottom:28px;transition:color 0.2s;}
+.back:hover{color:#f59e0b;}
+.header{text-align:center;margin-bottom:32px;}
+.header h1{font-family:'Syne',sans-serif;font-size:1.9rem;margin-bottom:8px;}
+.header h1 span{background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.header p{color:#475569;font-size:0.88rem;}
+.input-card{background:rgba(18,18,30,0.95);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px;margin-bottom:20px;}
+label{display:block;font-size:0.75rem;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;}
+textarea{
+  width:100%;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);border-radius:10px;
+  color:#e2e8f0;padding:14px 16px;font-family:'Inter',sans-serif;font-size:0.9rem;
+  outline:none;resize:vertical;min-height:120px;
+  transition:border-color 0.2s,box-shadow 0.2s;margin-bottom:16px;
+}
+textarea:focus{border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,0.1);}
+textarea::placeholder{color:#334155;}
+.btn-predict{
+  width:100%;padding:14px;border-radius:12px;border:none;cursor:pointer;
+  font-family:'Inter',sans-serif;font-weight:700;font-size:0.95rem;
+  background:linear-gradient(135deg,#d97706,#f59e0b);color:#000;
+  box-shadow:0 0 24px rgba(245,158,11,0.25);transition:all 0.25s;
+}
+.btn-predict:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(245,158,11,0.45);}
+.result-card{background:rgba(18,18,30,0.95);border:1px solid rgba(245,158,11,0.15);border-radius:20px;padding:32px;margin-bottom:20px;text-align:center;animation:fadeUp 0.5s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.stars-big{font-size:2.8rem;margin-bottom:10px;display:block;}
+.rating-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:700;color:#f59e0b;margin-bottom:18px;}
+.conf-label{font-size:0.75rem;color:#475569;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;}
+.conf-track{background:rgba(255,255,255,0.06);border-radius:20px;height:20px;margin:0 auto 6px;max-width:280px;overflow:hidden;}
+.conf-fill{background:linear-gradient(90deg,#d97706,#f59e0b);height:100%;border-radius:20px;transition:width 1s ease;}
+.conf-pct{font-weight:700;font-size:0.9rem;color:#fbbf24;}
+.sentiment-badge{display:inline-block;padding:6px 20px;border-radius:20px;font-size:0.82rem;font-weight:700;margin-top:16px;letter-spacing:0.5px;}
+.s-pos{background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3);}
+.s-neu{background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3);}
+.s-neg{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.3);}
+.review-quote{color:#475569;font-size:0.85rem;font-style:italic;margin-top:16px;line-height:1.6;}
+.examples-card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;margin-bottom:20px;}
+.examples-card p{font-size:0.8rem;color:#475569;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.8px;font-weight:600;}
+.ex-btns{display:flex;flex-wrap:wrap;gap:8px;}
+.ex-btn{padding:8px 16px;border-radius:9px;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;transition:all 0.2s;}
+.ex-pos{background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.2);}
+.ex-pos:hover{background:rgba(16,185,129,0.2);}
+.ex-neu{background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2);}
+.ex-neu:hover{background:rgba(245,158,11,0.2);}
+.ex-neg{background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.2);}
+.ex-neg:hover{background:rgba(239,68,68,0.2);}
+.bottom-btns{display:flex;gap:12px;justify-content:center;}
+.btn-link{padding:10px 22px;border-radius:10px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.85rem;text-decoration:none;border:1px solid rgba(255,255,255,0.1);color:#94a3b8;transition:all 0.2s;}
+.btn-link:hover{border-color:rgba(0,212,255,0.3);color:#00d4ff;}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="/ml_dashboard" class="back">← ML Dashboard</a>
+  <div class="header">
+    <h1>🔮 Live <span>Rating Predictor</span></h1>
+    <p>Type any customer review — our AI predicts the star rating instantly</p>
+  </div>
+  <div class="input-card">
+    <form action="/ml/predict_rating" method="POST">
+      <label>Enter a customer review</label>
+      <textarea name="review_text" placeholder="e.g. The food was absolutely delicious and fresh! Very happy with the service.">{% if result %}{{ result.text }}{% endif %}</textarea>
+      <button type="submit" class="btn-predict">✨ Predict Rating</button>
+    </form>
+  </div>
+  {% if result %}
+  <div class="result-card">
+    <span class="stars-big">{% for i in range(result.rating) %}⭐{% endfor %}</span>
+    <div class="rating-num">{{ result.rating }} / 5 Stars</div>
+    <div class="conf-label">Model Confidence</div>
+    <div class="conf-track"><div class="conf-fill" style="width:{{ result.confidence }}%;"></div></div>
+    <div class="conf-pct">{{ result.confidence }}%</div>
+    {% if result.rating >= 4 %}
+      <span class="sentiment-badge s-pos">😊 Positive Review</span>
+    {% elif result.rating == 3 %}
+      <span class="sentiment-badge s-neu">😐 Neutral Review</span>
+    {% else %}
+      <span class="sentiment-badge s-neg">😞 Negative Review</span>
+    {% endif %}
+    <div class="review-quote">"{{ result.text }}"</div>
+  </div>
+  {% endif %}
+  <div class="examples-card">
+    <p>Try example reviews</p>
+    <div class="ex-btns">
+      <button class="ex-btn ex-pos" onclick="setReview('The food was absolutely amazing and fresh! Best canteen ever.')">😊 Positive</button>
+      <button class="ex-btn ex-neu" onclick="setReview('Food was okay, nothing special. Average experience today.')">😐 Neutral</button>
+      <button class="ex-btn ex-neg" onclick="setReview('Terrible quality, very disappointed with the food and service.')">😞 Negative</button>
+    </div>
+  </div>
+  <div class="bottom-btns">
+    <a href="/ml/sentiment_analysis" class="btn-link">📊 Full Analysis</a>
+    <a href="/ml_dashboard" class="btn-link">← ML Dashboard</a>
+  </div>
+</div>
+<script>
+function setReview(text){document.querySelector('textarea[name=review_text]').value=text;}
+</script>
+</body>
+</html>

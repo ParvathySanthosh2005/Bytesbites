@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Feedback | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0a0f;color:#e2e8f0;font-family:'Inter',sans-serif;background-image:radial-gradient(ellipse at 20% 30%,rgba(245,158,11,0.06) 0%,transparent 50%);}
+nav{background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.07);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px;}
+.nav-right{display:flex;gap:10px;}
+.btn-nav{padding:7px 16px;border-radius:9px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.8rem;text-decoration:none;border:1px solid rgba(255,255,255,0.07);color:#94a3b8;transition:all 0.2s;}
+.btn-nav:hover{color:#f59e0b;border-color:rgba(245,158,11,0.3);}
+.btn-new{background:linear-gradient(135deg,#d97706,#f59e0b);color:#000 !important;border:none !important;box-shadow:0 0 15px rgba(245,158,11,0.2);}
+.btn-new:hover{box-shadow:0 0 25px rgba(245,158,11,0.4) !important;transform:translateY(-1px);}
+.container{max-width:800px;margin:0 auto;padding:40px 24px;}
+h1{font-family:'Syne',sans-serif;font-size:1.8rem;margin-bottom:8px;}
+h1 span{background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:#475569;font-size:0.85rem;margin-bottom:32px;}
+.fb-card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;margin-bottom:14px;transition:all 0.25s;}
+.fb-card:hover{border-color:rgba(245,158,11,0.2);box-shadow:0 8px 30px rgba(0,0,0,0.3);}
+.fb-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.stars{color:#f59e0b;font-size:1.1rem;}
+.badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:0.72rem;font-weight:700;background:rgba(245,158,11,0.12);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);}
+.comment{color:#94a3b8;font-size:0.88rem;line-height:1.6;margin-bottom:12px;}
+.emoji{font-size:1.3rem;}
+.meta{color:#334155;font-size:0.75rem;}
+.fb-img{margin-top:12px;}
+.fb-img img{border-radius:10px;max-width:180px;border:1px solid rgba(255,255,255,0.08);}
+.empty{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:48px;text-align:center;}
+.empty p{color:#475569;}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <div class="nav-right">
+    <a href="/give_feedback" class="btn-nav btn-new">+ Give Feedback</a>
+    <a href="/customer_dashboard" class="btn-nav">← Dashboard</a>
+  </div>
+</nav>
+<div class="container">
+  <h1>My <span>Feedback</span></h1>
+  <p class="sub">Your submitted reviews and ratings</p>
+  {% if feedback %}
+    {% for fb in feedback %}
+    <div class="fb-card">
+      <div class="fb-header">
+        <div>
+          <span class="stars">{% for i in range(fb['rating']) %}⭐{% endfor %}</span>
+          <span class="badge" style="margin-left:10px;">{{ fb['category'] }}</span>
+        </div>
+        {% if fb['emoji'] %}<span class="emoji">{{ fb['emoji'] }}</span>{% endif %}
+      </div>
+      <p class="comment">{{ fb['comment'] }}</p>
+      <div class="meta">Submitted on {{ fb['created_at'] }}</div>
+      {% if fb['image_path'] %}
+      <div class="fb-img"><img src="/{{ fb['image_path'] }}" alt="feedback image"></div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="empty"><p>No feedback submitted yet. Share your experience!</p></div>
+  {% endif %}
+</div>
+</body>
+</html>

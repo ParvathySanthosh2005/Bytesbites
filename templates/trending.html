@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trending | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0a0f;color:#e2e8f0;font-family:'Inter',sans-serif;background-image:radial-gradient(ellipse at 30% 30%,rgba(239,68,68,0.08) 0%,transparent 50%);}
+nav{background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.07);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px;}
+.back{color:#475569;font-size:0.82rem;text-decoration:none;padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.07);transition:all 0.2s;}
+.back:hover{color:#ef4444;border-color:rgba(239,68,68,0.3);}
+.container{max-width:800px;margin:0 auto;padding:40px 24px;}
+h1{font-family:'Syne',sans-serif;font-size:1.8rem;margin-bottom:8px;}
+h1 span{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:#475569;font-size:0.85rem;margin-bottom:32px;}
+.trend-card{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:20px 24px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;transition:all 0.25s;}
+.trend-card:hover{border-color:rgba(239,68,68,0.2);box-shadow:0 8px 30px rgba(0,0,0,0.3);}
+.trend-left{display:flex;align-items:center;gap:16px;}
+.rank{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;}
+.rank-1{background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#000;}
+.rank-2{background:rgba(148,163,184,0.15);color:#94a3b8;border:1px solid rgba(148,163,184,0.2);}
+.rank-3{background:rgba(180,83,9,0.15);color:#d97706;border:1px solid rgba(180,83,9,0.2);}
+.rank-other{background:rgba(255,255,255,0.05);color:#475569;border:1px solid rgba(255,255,255,0.07);}
+.item-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;}
+.item-price{color:#475569;font-size:0.8rem;margin-top:3px;}
+.order-badge{background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.25);padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:700;}
+.empty{background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:48px;text-align:center;}
+.empty p{color:#475569;}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <a href="/customer_dashboard" class="back">← Dashboard</a>
+</nav>
+<div class="container">
+  <h1>🔥 <span>Trending</span> Now</h1>
+  <p class="sub">Most popular items ordered by students today</p>
+  {% if items %}
+    {% for item in items %}
+    <div class="trend-card">
+      <div class="trend-left">
+        <div class="rank {% if loop.index == 1 %}rank-1{% elif loop.index == 2 %}rank-2{% elif loop.index == 3 %}rank-3{% else %}rank-other{% endif %}">{{ loop.index }}</div>
+        <div>
+          <div class="item-name">{{ item['name'] }}</div>
+          <div class="item-price">₹{{ item['price'] }}</div>
+        </div>
+      </div>
+      <span class="order-badge">{{ item['order_count'] }} orders</span>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="empty"><p>No trending data yet. Start ordering to see what's hot!</p></div>
+  {% endif %}
+</div>
+</body>
+</html>

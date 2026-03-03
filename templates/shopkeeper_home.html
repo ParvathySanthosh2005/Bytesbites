@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shopkeeper Panel | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  min-height:100vh;background:#0a0a0f;color:#e2e8f0;
+  font-family:'Inter',sans-serif;
+  background-image:
+    radial-gradient(ellipse at 10% 20%,rgba(124,58,237,0.1) 0%,transparent 50%),
+    radial-gradient(ellipse at 90% 80%,rgba(0,212,255,0.07) 0%,transparent 50%);
+}
+nav{
+  background:rgba(10,10,15,0.95);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  padding:16px 32px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);
+}
+.logo{
+  font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:2px;
+}
+.badge-staff{
+  background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);
+  color:#a78bfa;font-size:0.72rem;font-weight:600;
+  padding:4px 12px;border-radius:20px;letter-spacing:0.5px;
+}
+.container{max-width:1100px;margin:0 auto;padding:48px 24px;}
+.header{margin-bottom:48px;}
+.header h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:700;margin-bottom:8px;}
+.header h1 span{background:linear-gradient(135deg,#7c3aed,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.header p{color:#475569;font-size:0.9rem;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.card{
+  background:rgba(18,18,30,0.9);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:20px;padding:28px;
+  text-decoration:none;color:inherit;
+  transition:all 0.25s;position:relative;overflow:hidden;display:block;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.4);border-color:rgba(255,255,255,0.12);}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.3s;}
+.card:hover::before{opacity:1;}
+.c1::before{background:linear-gradient(90deg,#7c3aed,#a78bfa);}
+.c2::before{background:linear-gradient(90deg,#10b981,#34d399);}
+.c3::before{background:linear-gradient(90deg,#00d4ff,#0ea5e9);}
+.c4::before{background:linear-gradient(90deg,#f59e0b,#fbbf24);}
+.c5::before{background:linear-gradient(90deg,#ec4899,#f472b6);}
+.cml::before{background:linear-gradient(90deg,#00d4ff,#7c3aed);}
+.card-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;}
+.ic1{background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);}
+.ic2{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.2);}
+.ic3{background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.2);}
+.ic4{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.2);}
+.ic5{background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.2);}
+.icml{background:linear-gradient(135deg,rgba(0,212,255,0.12),rgba(124,58,237,0.12));border:1px solid rgba(124,58,237,0.25);}
+.card h3{font-family:'Syne',sans-serif;font-size:1.15rem;margin-bottom:8px;}
+.card p{color:#475569;font-size:0.83rem;line-height:1.5;}
+.arrow{position:absolute;right:24px;bottom:24px;color:#334155;font-size:1.1rem;transition:all 0.2s;}
+.card:hover .arrow{color:#7c3aed;transform:translateX(4px);}
+.ml-label{
+  display:inline-block;font-size:0.68rem;font-weight:700;
+  background:linear-gradient(135deg,rgba(0,212,255,0.15),rgba(124,58,237,0.15));
+  border:1px solid rgba(0,212,255,0.25);
+  color:#00d4ff;padding:3px 10px;border-radius:20px;
+  letter-spacing:0.5px;margin-top:8px;
+}
+.logout-card{background:rgba(239,68,68,0.06);border-color:rgba(239,68,68,0.15);}
+.logout-card:hover{border-color:rgba(239,68,68,0.3);}
+.logout-card .arrow{color:#475569;}
+.logout-card:hover .arrow{color:#ef4444;}
+.logout-card::before{background:linear-gradient(90deg,#ef4444,#dc2626);}
+.logout-card h3{color:#fca5a5;}
+.logout-card p{color:#475569;}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <span class="badge-staff">⚡ Staff Panel</span>
+</nav>
+<div class="container">
+  <div class="header">
+    <h1>Shopkeeper <span>Control Panel</span></h1>
+    <p>Manage your canteen operations from one place.</p>
+  </div>
+  <div class="grid">
+    <a href="/shopkeeper_dashboard" class="card c1">
+      <div class="card-icon ic1">📋</div>
+      <h3>Manage Menu</h3>
+      <p>Update stock levels, prices and item availability.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/add_item" class="card c2">
+      <div class="card-icon ic2">➕</div>
+      <h3>Add Menu Item</h3>
+      <p>Add new dishes or beverages to the canteen menu.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/shopkeeper/orders" class="card c3">
+      <div class="card-icon ic3">🛒</div>
+      <h3>View Orders</h3>
+      <p>Track and update status of all pending orders.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/reviews" class="card c4">
+      <div class="card-icon ic4">💬</div>
+      <h3>Customer Reviews</h3>
+      <p>Read feedback and ratings from your customers.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/analytics" class="card c5">
+      <div class="card-icon ic5">📊</div>
+      <h3>Analytics</h3>
+      <p>Daily sales trends and top-performing items.</p>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/ml_dashboard" class="card cml">
+      <div class="card-icon icml">🤖</div>
+      <h3>ML Analytics</h3>
+      <p>AI-powered stock prediction and sentiment analysis.</p>
+      <span class="ml-label">✨ AI Powered</span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/shopkeeper_logout" class="card logout-card">
+      <div class="card-icon" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);">🚪</div>
+      <h3>Logout</h3>
+      <p>Securely sign out of the staff panel.</p>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>

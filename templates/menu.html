@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Menu | ByteBites</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0a0f;color:#e2e8f0;font-family:'Inter',sans-serif;background-image:radial-gradient(ellipse at 20% 20%,rgba(0,212,255,0.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(124,58,237,0.06) 0%,transparent 50%);}
+nav{background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.07);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px;}
+.back{color:#475569;font-size:0.82rem;text-decoration:none;padding:6px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.07);transition:all 0.2s;}
+.back:hover{color:#00d4ff;border-color:rgba(0,212,255,0.3);}
+.container{max-width:900px;margin:0 auto;padding:40px 24px;}
+.page-title{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:6px;}
+.page-title span{background:linear-gradient(135deg,#00d4ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{color:#475569;font-size:0.85rem;margin-bottom:32px;}
+.item-card{
+  background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);
+  border-radius:16px;padding:22px 24px;margin-bottom:14px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all 0.25s;
+}
+.item-card:hover{border-color:rgba(0,212,255,0.2);box-shadow:0 8px 30px rgba(0,0,0,0.3);}
+.item-info h4{font-family:'Syne',sans-serif;font-size:1.05rem;margin-bottom:6px;}
+.price{color:#00d4ff;font-weight:700;font-size:1rem;margin-bottom:4px;}
+.stock{color:#475569;font-size:0.78rem;}
+.stock span{color:#10b981;font-weight:600;}
+.order-form{display:flex;align-items:center;gap:10px;}
+.qty-input{
+  width:70px;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;color:#e2e8f0;padding:8px 10px;
+  font-family:'Inter',sans-serif;font-size:0.88rem;
+  outline:none;text-align:center;
+}
+.qty-input:focus{border-color:#00d4ff;}
+.btn-order{
+  padding:9px 20px;border-radius:10px;border:none;cursor:pointer;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:0.85rem;
+  background:linear-gradient(135deg,#00b4d8,#00d4ff);color:#000;
+  box-shadow:0 0 15px rgba(0,212,255,0.25);transition:all 0.2s;
+}
+.btn-order:hover{transform:translateY(-1px);box-shadow:0 0 25px rgba(0,212,255,0.45);}
+.empty{
+  background:rgba(18,18,30,0.9);border:1px solid rgba(255,255,255,0.07);
+  border-radius:16px;padding:48px;text-align:center;
+}
+.empty p{color:#475569;font-size:1rem;}
+</style>
+</head>
+<body>
+<nav>
+  <span class="logo">BYTEBITES</span>
+  <a href="/customer_dashboard" class="back">← Dashboard</a>
+</nav>
+<div class="container">
+  <h1 class="page-title">Today's <span>Menu</span></h1>
+  <p class="sub">Fresh items available right now</p>
+  {% if items %}
+    {% for item in items %}
+    <div class="item-card">
+      <div class="item-info">
+        <h4>{{ item['name'] }}</h4>
+        <div class="price">₹{{ item['price'] }}</div>
+        <div class="stock">Available: <span>{{ item['quantity'] }} units</span></div>
+      </div>
+      <form action="/place_order_single" method="POST" class="order-form">
+        <input type="hidden" name="item_id" value="{{ item['id'] }}">
+        <input type="number" name="quantity" class="qty-input" min="1" max="{{ item['quantity'] }}" value="1">
+        <button type="submit" class="btn-order">Order →</button>
+      </form>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="empty"><p>😔 No items available right now. Check back soon!</p></div>
+  {% endif %}
+</div>
+</body>
+</html>
