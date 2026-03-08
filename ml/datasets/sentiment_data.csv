@@ -1,76 +1,301 @@
 comment,rating
-absolutely delicious food best canteen ever loved it,5
-the food was amazing fresh and hot highly recommended,5
-excellent quality and fast friendly service outstanding,5
-loved the chicken rice so tasty will definitely come again,5
-great experience perfect meal very satisfied with everything,5
-best food on campus superb taste and affordable price,5
-wonderful food great quality highly recommended to everyone,5
-outstanding service and delicious hot fresh meals today,5
-food was fantastic loved every bite amazing flavors,5
-the chapathi and curry were absolutely perfect today,5
-very happy with the food quality great value for money,5
-incredible food fresh ingredients cooked perfectly loved it,5
-superb canteen best meals I have had in a long time,5
-perfect combination of taste quality and service excellent,5
-totally satisfied with the meal will keep coming back daily,5
-good food nice taste overall satisfied with the service,4
-pretty good meal enjoyed it today minor wait at counter,4
-tasty food good quality service could be a bit faster,4
-liked the food good value for the price paid today,4
-nice experience will definitely come again tomorrow,4
-food was good could have been a little hotter today,4
-decent meal at a reasonable price enjoyed the veg meals,4
-the porotta was good and soft the curry was tasty enough,4
-satisfying meal good portions worth the price paid,4
-quite good today food was fresh and the staff were polite,4
-enjoyed the fish curry with rice good combination overall,4
-good food quality today a little slow but worth waiting,4
-reasonable food the egg roast was particularly nice today,4
-overall positive experience food was hot and tasty enough,4
-good canteen would recommend it to friends for daily meals,4
-food was okay nothing very special about it today though,3
-average quality meal it could definitely be much better,3
-neither particularly good nor bad just a regular average meal,3
-mediocre food today not very impressed with the quality,3
-ok experience nothing outstanding about the food or service,3
-food is acceptable but not as great as it used to be,3
+absolutely delicious curry loved every bite amazing,5
+absolutely delicious veg meals loved every bite amazing,5
+absolutely delicious chicken rice loved every bite amazing,5
+the rice was fantastic fresh and hot highly recommended,5
+the porotta was fantastic fresh and hot highly recommended,5
+the chapathi was fantastic fresh and hot highly recommended,5
+excellent chapathi best canteen food I have ever tasted,5
+excellent egg roast best canteen food I have ever tasted,5
+excellent rice best canteen food I have ever tasted,5
+loved the veg meals so tasty will definitely come again tomorrow,5
+loved the curry so tasty will definitely come again tomorrow,5
+loved the rice so tasty will definitely come again tomorrow,5
+outstanding meal perfect meal very satisfied with everything,5
+outstanding veg meals perfect meal very satisfied with everything,5
+outstanding lunch perfect meal very satisfied with everything,5
+superb tea great quality and very affordable price today,5
+superb chicken rice great quality and very affordable price today,5
+superb chicken rice great quality and very affordable price today,5
+wonderful veg meals incredible taste fresh ingredients perfectly cooked,5
+wonderful chapathi incredible taste fresh ingredients perfectly cooked,5
+wonderful chapathi incredible taste fresh ingredients perfectly cooked,5
+the meal was perfect best food on campus outstanding,5
+the lunch was perfect best food on campus outstanding,5
+the chicken rice was perfect best food on campus outstanding,5
+amazing meal great experience highly recommend to everyone here,5
+amazing chapathi great experience highly recommend to everyone here,5
+amazing rice great experience highly recommend to everyone here,5
+fantastic curry very happy with quality great value for money,5
+fantastic rice very happy with quality great value for money,5
+fantastic meal very happy with quality great value for money,5
+best tea I have had in years totally outstanding today,5
+best chapathi I have had in years totally outstanding today,5
+best food I have had in years totally outstanding today,5
+the lunch was incredibly tasty fresh and well cooked today,5
+the porotta was incredibly tasty fresh and well cooked today,5
+the chicken rice was incredibly tasty fresh and well cooked today,5
+delicious egg roast perfect combination of taste and quality excellent,5
+delicious rice perfect combination of taste and quality excellent,5
+delicious tea perfect combination of taste and quality excellent,5
+great fish curry totally satisfied will keep coming back every day,5
+great porotta totally satisfied will keep coming back every day,5
+great egg roast totally satisfied will keep coming back every day,5
+the chapathi was brilliant hot fresh and absolutely delicious today,5
+the fish curry was brilliant hot fresh and absolutely delicious today,5
+the veg meals was brilliant hot fresh and absolutely delicious today,5
+loved everything about the veg meals best meal this week,5
+loved everything about the tea best meal this week,5
+loved everything about the veg meals best meal this week,5
+the fish curry exceeded my expectations absolutely wonderful today,5
+the fish curry exceeded my expectations absolutely wonderful today,5
+the lunch exceeded my expectations absolutely wonderful today,5
+cannot get enough of the porotta simply outstanding every time,5
+cannot get enough of the chicken rice simply outstanding every time,5
+cannot get enough of the rice simply outstanding every time,5
+the food was cooked to perfection loved every single bite,5
+the meal was cooked to perfection loved every single bite,5
+the veg meals was cooked to perfection loved every single bite,5
+brilliant tea great service fast and very tasty today,5
+brilliant veg meals great service fast and very tasty today,5
+brilliant meal great service fast and very tasty today,5
+good porotta nice taste overall satisfied with the service today,4
+good curry nice taste overall satisfied with the service today,4
+good lunch nice taste overall satisfied with the service today,4
+pretty good fish curry enjoyed it today minor wait at counter,4
+pretty good lunch enjoyed it today minor wait at counter,4
+pretty good chapathi enjoyed it today minor wait at counter,4
+tasty rice good quality service could be a bit faster,4
+tasty veg meals good quality service could be a bit faster,4
+tasty chicken rice good quality service could be a bit faster,4
+liked the curry good value for the price paid today,4
+liked the chapathi good value for the price paid today,4
+liked the porotta good value for the price paid today,4
+nice veg meals experience will definitely come again tomorrow soon,4
+nice chapathi experience will definitely come again tomorrow soon,4
+nice veg meals experience will definitely come again tomorrow soon,4
+the tea was good could have been a little hotter,4
+the porotta was good could have been a little hotter,4
+the food was good could have been a little hotter,4
+decent curry at a reasonable price enjoyed it overall today,4
+decent fish curry at a reasonable price enjoyed it overall today,4
+decent egg roast at a reasonable price enjoyed it overall today,4
+satisfying fish curry good portions worth the price paid today,4
+satisfying fish curry good portions worth the price paid today,4
+satisfying chapathi good portions worth the price paid today,4
+quite good curry food was fresh and staff were polite,4
+quite good porotta food was fresh and staff were polite,4
+quite good rice food was fresh and staff were polite,4
+enjoyed the curry good combination overall worth coming back,4
+enjoyed the curry good combination overall worth coming back,4
+enjoyed the veg meals good combination overall worth coming back,4
+good lunch quality today a little slow but worth waiting,4
+good curry quality today a little slow but worth waiting,4
+good egg roast quality today a little slow but worth waiting,4
+reasonable meal particularly nice today good experience overall,4
+reasonable rice particularly nice today good experience overall,4
+reasonable chapathi particularly nice today good experience overall,4
+overall positive egg roast experience food was hot and tasty enough,4
+overall positive food experience food was hot and tasty enough,4
+overall positive tea experience food was hot and tasty enough,4
+good canteen porotta would recommend to friends for daily meals,4
+good canteen curry would recommend to friends for daily meals,4
+good canteen rice would recommend to friends for daily meals,4
+the meal was above average today good taste and portion,4
+the chapathi was above average today good taste and portion,4
+the curry was above average today good taste and portion,4
+pretty satisfied with the fish curry good meal overall today,4
+pretty satisfied with the chicken rice good meal overall today,4
+pretty satisfied with the chapathi good meal overall today,4
+the chicken rice was enjoyable good flavors and reasonable price,4
+the fish curry was enjoyable good flavors and reasonable price,4
+the tea was enjoyable good flavors and reasonable price,4
+nice hot porotta good service friendly staff overall satisfied,4
+nice hot veg meals good service friendly staff overall satisfied,4
+nice hot chapathi good service friendly staff overall satisfied,4
+the lunch was worth it good quality fresh and tasty,4
+the rice was worth it good quality fresh and tasty,4
+the fish curry was worth it good quality fresh and tasty,4
+enjoyed my chapathi today good value and pleasant experience,4
+enjoyed my curry today good value and pleasant experience,4
+enjoyed my food today good value and pleasant experience,4
+the tea was okay nothing very special about it today,3
+the curry was okay nothing very special about it today,3
+the food was okay nothing very special about it today,3
+average egg roast quality it could definitely be much better,3
+average porotta quality it could definitely be much better,3
+average egg roast quality it could definitely be much better,3
+neither good nor bad chapathi just a regular average meal,3
+neither good nor bad rice just a regular average meal,3
+neither good nor bad meal just a regular average meal,3
+mediocre meal today not very impressed with the quality,3
+mediocre porotta today not very impressed with the quality,3
+mediocre rice today not very impressed with the quality,3
+ok lunch experience nothing outstanding about the food today,3
+ok tea experience nothing outstanding about the food today,3
+ok lunch experience nothing outstanding about the food today,3
+the tea is acceptable but not as great as before,3
+the fish curry is acceptable but not as great as before,3
+the chapathi is acceptable but not as great as before,3
+the egg roast was just average today nothing memorable at all,3
 the meal was just average today nothing memorable at all,3
-not bad but also not great just somewhere in the middle,3
-ordinary meal nothing to complain about but nothing special,3
-average day at the canteen food was passable nothing more,3
-the rice was okay but the curry was a bit too salty today,3
-standard canteen food nothing exceptional about it today,3
-the food was alright but I have definitely had much better,3
-meal was average could improve the taste and presentation,3
-nothing great nothing terrible just an ordinary average meal,3
-poor quality food not tasty at all very disappointed today,2
-disappointed with the food the taste was not good at all,2
-food was cold and did not seem fresh when I received it,2
-bad experience today not worth the price that was charged,2
-unhappy with the taste and quality of the food today,2
-very slow service and the food was stale and not fresh,2
-the chapathi was hard and the curry was watery and bland,2
-food quality has really gone down lately very disappointed,2
-not happy at all the portions were small and tasteless,2
-the egg roast was overcooked and dry very disappointing,2
-below average quality today food was not worth eating,2
-service was rude and the food was cold and unappetizing,2
-rice was undercooked and the curry had no flavor at all,2
-total waste of money the food was bad and service slow,2
-would not recommend the canteen food quality is very poor,2
-terrible food worst canteen experience I have ever had,1
-disgusting taste completely unacceptable and very overpriced,1
-awful food I will never order from this canteen ever again,1
-horrible experience very bad quality food and rude staff,1
-worst canteen food I have ever eaten in my entire life,1
-extremely disappointing very unhappy with everything today,1
+the food was just average today nothing memorable at all,3
+not bad but not great veg meals just somewhere in the middle,3
+not bad but not great chicken rice just somewhere in the middle,3
+not bad but not great veg meals just somewhere in the middle,3
+ordinary egg roast nothing to complain about but nothing special,3
+ordinary curry nothing to complain about but nothing special,3
+ordinary egg roast nothing to complain about but nothing special,3
+average curry food was passable nothing more nothing less,3
+average tea food was passable nothing more nothing less,3
+average lunch food was passable nothing more nothing less,3
+the veg meals was a bit too salty today just average,3
+the tea was a bit too salty today just average,3
+the tea was a bit too salty today just average,3
+standard lunch nothing exceptional about it today mediocre,3
+standard food nothing exceptional about it today mediocre,3
+standard meal nothing exceptional about it today mediocre,3
+the porotta was alright but I have definitely had much better,3
+the meal was alright but I have definitely had much better,3
+the chicken rice was alright but I have definitely had much better,3
+curry was average could improve the taste and presentation,3
+rice was average could improve the taste and presentation,3
+veg meals was average could improve the taste and presentation,3
+nothing great nothing terrible curry just an ordinary meal,3
+nothing great nothing terrible meal just an ordinary meal,3
+nothing great nothing terrible porotta just an ordinary meal,3
+the curry was so so today not impressed not disappointed,3
+the fish curry was so so today not impressed not disappointed,3
+the veg meals was so so today not impressed not disappointed,3
+the porotta could be improved taste was just okay today,3
+the tea could be improved taste was just okay today,3
+the egg roast could be improved taste was just okay today,3
+had better food elsewhere this was just average today,3
+had better chicken rice elsewhere this was just average today,3
+had better rice elsewhere this was just average today,3
+the rice was fine nothing to write home about today,3
+the porotta was fine nothing to write home about today,3
+the meal was fine nothing to write home about today,3
+okay egg roast today not the best not the worst experience,3
+okay meal today not the best not the worst experience,3
+okay veg meals today not the best not the worst experience,3
+poor curry quality not tasty at all very disappointed today,2
+poor porotta quality not tasty at all very disappointed today,2
+poor curry quality not tasty at all very disappointed today,2
+disappointed with the meal taste was not good at all,2
+disappointed with the lunch taste was not good at all,2
+disappointed with the chapathi taste was not good at all,2
+the egg roast was cold and did not seem fresh today,2
+the fish curry was cold and did not seem fresh today,2
+the egg roast was cold and did not seem fresh today,2
+bad meal experience today not worth the price charged,2
+bad meal experience today not worth the price charged,2
+bad chicken rice experience today not worth the price charged,2
+unhappy with the lunch taste and quality today very bad,2
+unhappy with the fish curry taste and quality today very bad,2
+unhappy with the food taste and quality today very bad,2
+very slow service and the chicken rice was stale not fresh,2
+very slow service and the veg meals was stale not fresh,2
+very slow service and the fish curry was stale not fresh,2
+the porotta was hard and bland very disappointing today,2
+the chapathi was hard and bland very disappointing today,2
+the chicken rice was hard and bland very disappointing today,2
+chapathi quality has really gone down lately very disappointed,2
+lunch quality has really gone down lately very disappointed,2
+veg meals quality has really gone down lately very disappointed,2
+not happy at all the veg meals was tasteless and small,2
+not happy at all the rice was tasteless and small,2
+not happy at all the food was tasteless and small,2
+the veg meals was overcooked and dry very disappointing today,2
+the meal was overcooked and dry very disappointing today,2
+the egg roast was overcooked and dry very disappointing today,2
+below average egg roast today food was not worth eating at all,2
+below average curry today food was not worth eating at all,2
+below average food today food was not worth eating at all,2
+rude service and the meal was cold and unappetizing today,2
+rude service and the egg roast was cold and unappetizing today,2
+rude service and the porotta was cold and unappetizing today,2
+meal was undercooked and had no flavor at all today,2
+lunch was undercooked and had no flavor at all today,2
+tea was undercooked and had no flavor at all today,2
+total waste of money the chapathi was bad and stale,2
+total waste of money the meal was bad and stale,2
+total waste of money the rice was bad and stale,2
+would not recommend the rice quality is very poor today,2
+would not recommend the chapathi quality is very poor today,2
+would not recommend the rice quality is very poor today,2
+the porotta looked old and tasted stale very unhappy today,2
+the tea looked old and tasted stale very unhappy today,2
+the curry looked old and tasted stale very unhappy today,2
+terrible value for money the curry was disappointing today,2
+terrible value for money the fish curry was disappointing today,2
+terrible value for money the food was disappointing today,2
+the meal was soggy and tasteless totally not worth it,2
+the food was soggy and tasteless totally not worth it,2
+the veg meals was soggy and tasteless totally not worth it,2
+very unhappy with the chapathi portion was tiny and bad,2
+very unhappy with the chapathi portion was tiny and bad,2
+very unhappy with the veg meals portion was tiny and bad,2
+the fish curry had a strange smell and tasted very off today,2
+the chicken rice had a strange smell and tasted very off today,2
+the lunch had a strange smell and tasted very off today,2
+terrible meal worst canteen experience I have ever had today,1
+terrible chapathi worst canteen experience I have ever had today,1
+terrible lunch worst canteen experience I have ever had today,1
+disgusting chapathi completely unacceptable and very overpriced today,1
+disgusting chicken rice completely unacceptable and very overpriced today,1
+disgusting veg meals completely unacceptable and very overpriced today,1
+awful rice I will never order from this canteen again,1
+awful curry I will never order from this canteen again,1
+awful chicken rice I will never order from this canteen again,1
+horrible chapathi experience very bad quality food and rude staff,1
+horrible veg meals experience very bad quality food and rude staff,1
+horrible chicken rice experience very bad quality food and rude staff,1
+worst fish curry I have ever eaten in my entire life today,1
+worst veg meals I have ever eaten in my entire life today,1
+worst meal I have ever eaten in my entire life today,1
+extremely disappointing chapathi very unhappy with everything today,1
+extremely disappointing porotta very unhappy with everything today,1
+extremely disappointing curry very unhappy with everything today,1
 the food was completely inedible I could not finish it,1
-absolutely terrible tasted like it was cooked days ago,1
-unacceptably bad food service was horrible and very slow,1
-this is the worst food I have eaten totally disgusting,1
-vile food with no taste at all completely unacceptable today,1
-food poisoning risk the rice smelled bad and looked old,1
-never coming back here the food is absolutely terrible,1
-the worst meal I have had in years truly terrible food,1
-completely inedible food wasted my money today terrible,1
+the chapathi was completely inedible I could not finish it,1
+the meal was completely inedible I could not finish it,1
+absolutely terrible egg roast tasted like it was cooked days ago,1
+absolutely terrible rice tasted like it was cooked days ago,1
+absolutely terrible lunch tasted like it was cooked days ago,1
+unacceptably bad lunch service was horrible and very slow today,1
+unacceptably bad food service was horrible and very slow today,1
+unacceptably bad chapathi service was horrible and very slow today,1
+this food is the worst food I have eaten disgusting,1
+this tea is the worst food I have eaten disgusting,1
+this chapathi is the worst food I have eaten disgusting,1
+vile veg meals no taste at all completely unacceptable today,1
+vile veg meals no taste at all completely unacceptable today,1
+vile curry no taste at all completely unacceptable today,1
+the tea smelled bad and looked old never coming back,1
+the fish curry smelled bad and looked old never coming back,1
+the tea smelled bad and looked old never coming back,1
+never coming back the tea is absolutely terrible today,1
+never coming back the food is absolutely terrible today,1
+never coming back the rice is absolutely terrible today,1
+the worst chicken rice I have had in years truly terrible,1
+the worst curry I have had in years truly terrible,1
+the worst curry I have had in years truly terrible,1
+completely inedible curry wasted my money today so terrible,1
+completely inedible veg meals wasted my money today so terrible,1
+completely inedible chicken rice wasted my money today so terrible,1
+the tea was revolting I cannot believe they served this,1
+the rice was revolting I cannot believe they served this,1
+the fish curry was revolting I cannot believe they served this,1
+disgusting veg meals made me feel sick totally unacceptable today,1
+disgusting chapathi made me feel sick totally unacceptable today,1
+disgusting chapathi made me feel sick totally unacceptable today,1
+the chapathi was the worst thing I have eaten this year,1
+the meal was the worst thing I have eaten this year,1
+the food was the worst thing I have eaten this year,1
+absolutely horrible egg roast no quality control at all today,1
+absolutely horrible tea no quality control at all today,1
+absolutely horrible egg roast no quality control at all today,1
+dreadful porotta cold stale tasteless and overpriced today terrible,1
+dreadful food cold stale tasteless and overpriced today terrible,1
+dreadful chapathi cold stale tasteless and overpriced today terrible,1

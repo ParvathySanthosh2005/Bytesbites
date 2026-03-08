@@ -588,10 +588,6 @@ def ml_predict_rating():
                           "stars": "⭐" * rating}
     return render_template("ml_predict_rate.html", result=result)
 
-@app.route('/admin_help')
-def admin_help():
-    return "Admin Help Page (coming soon)"
-
 
 # ─────────────────────────────────────────────────────────────────────────────
 #  STARTUP
